@@ -12,7 +12,7 @@ const Banner = () => {
             there desire Job and they able to fixed there career. Explore now to
             get your Job Now.
           </p>
-          <button className="btn btn-info">Explore</button>
+          <button className="btn btn-info">Explore Now</button>
         </div>
       </div>
     </div>
