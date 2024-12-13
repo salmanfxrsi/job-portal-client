@@ -4,8 +4,7 @@ import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
-  console.log(user);
+  const { user, logoutUser } = useContext(AuthContext);
 
   const links = (
     <>
@@ -60,8 +59,18 @@ const Navbar = () => {
         <div className="menu menu-horizontal px-1 flex gap-5">{links}</div>
       </div>
       <div className="navbar-end flex gap-4">
-        {!user ? <Link className="btn btn-info">Login</Link> : <button className="btn btn-info">Logout</button>}
-        {!user && <Link className="btn btn-info">Register</Link>}
+        {!user ? (
+          <Link to={'/login'} className="btn btn-info">Login</Link>
+        ) : (
+          <button onClick={logoutUser} className="btn btn-info">
+            Logout
+          </button>
+        )}
+        {!user && (
+          <Link to={"/register"} className="btn btn-info">
+            Register
+          </Link>
+        )}
       </div>
     </div>
   );
