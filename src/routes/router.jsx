@@ -5,6 +5,7 @@ import ErrorPage from "../pages/ErrorPage";
 import RegisterPage from "../pages/RegisterPage";
 import LoginPage from "../pages/LoginPage";
 import JobsLayout from "../layouts/JobsLayout";
+import JobDetails from "../components/JobDetails";
 
 const router = createBrowserRouter([
     {
@@ -27,7 +28,12 @@ const router = createBrowserRouter([
         {
           path: "/jobs",
           element: <JobsLayout></JobsLayout>,
-        }
+        },
+        {
+          path: "/jobs/:id",
+          element: <JobDetails></JobDetails>,
+          loader: ({ params }) => fetch(`https://job-portal-server-murex.vercel.app/jobs/${params.id}`),
+        },
       ]
     },
   ]);
